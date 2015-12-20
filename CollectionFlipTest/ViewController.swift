@@ -13,7 +13,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     @IBOutlet weak var imageCollection: UICollectionView!
     
-    // mark: attribute
+    // MARK: attribute
     let collectionContent = [
         MyCellData(title: "estonia flag", imageName:"estonia"),
         MyCellData(title: "france flag", imageName:"france"),
@@ -30,7 +30,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var allCells = [Int:MyCell]()
     var selectedCell = 0
     var flipDoneCnt = 0
-    // mark: override func
+    // MARK: override func
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -45,10 +45,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let dest = segue.destinationViewController as! DetailViewController
-        dest.detailLabel.text = "you selected \(collectionContent[selectedCell].title)"
+        let dest = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+        dest.content = "you selected \(collectionContent[selectedCell].title)"
     }
-    // mark: collection view
+    // MARK: collection view
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionContent.count
     }
@@ -76,7 +76,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         mycell?.animating(true)
     }
     
-    // mark: flip
+    //MARK: flip
     func flipStart() {
         for (_, c) in allCells {
             if !c.anim_start {
@@ -93,6 +93,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             print("all effect finished, turn to another page")
             performSegueWithIdentifier("show", sender: self)
         }
+    }
+    
+    @IBAction func backFromDetail(sender: UIStoryboardSegue) {
+        imageCollection.reloadData()
     }
 }
 

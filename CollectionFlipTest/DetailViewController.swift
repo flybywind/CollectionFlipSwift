@@ -11,17 +11,19 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailLabel: UILabel!
+    var content:String = "empty!"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        detailLabel.text = content
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
