@@ -18,6 +18,7 @@
 		405805691C25965100046459 /* CollectionFlip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405805421C2546D900046459 /* CollectionFlip.framework */; };
 		4058056B1C25965900046459 /* CollectionFlip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 405805421C2546D900046459 /* CollectionFlip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		405805701C26A5DB00046459 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058056F1C26A5DB00046459 /* DetailViewController.swift */; };
+		405805721C26B14D00046459 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405805711C26B14D00046459 /* MyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		405805631C25476B00046459 /* FlyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyCollectionViewCell.swift; sourceTree = "<group>"; };
 		405805671C25904E00046459 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyCell.swift; path = ../MyCell.swift; sourceTree = "<group>"; };
 		4058056F1C26A5DB00046459 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		405805711C26B14D00046459 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		405805521C2546E800046459 /* CollectionFlipTest */ = {
 			isa = PBXGroup;
 			children = (
+				405805711C26B14D00046459 /* MyCell.swift */,
 				405805531C2546E800046459 /* AppDelegate.swift */,
 				405805551C2546E800046459 /* ViewController.swift */,
 				4058056F1C26A5DB00046459 /* DetailViewController.swift */,
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				405805681C25904E00046459 /* MyCell.swift in Sources */,
+				405805721C26B14D00046459 /* MyCell.swift in Sources */,
 				405805561C2546E800046459 /* ViewController.swift in Sources */,
 				405805541C2546E800046459 /* AppDelegate.swift in Sources */,
 				405805701C26A5DB00046459 /* DetailViewController.swift in Sources */,
