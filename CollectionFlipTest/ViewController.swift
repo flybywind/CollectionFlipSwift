@@ -13,6 +13,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     @IBOutlet weak var imageCollection: UICollectionView!
     
+    // mark: attribute
     let collectionContent = [
         MyCellData(title: "estonia flag", imageName:"estonia"),
         MyCellData(title: "france flag", imageName:"france"),
@@ -27,6 +28,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     ]
     
     var allCells = [Int:MyCell]()
+    var selectedCell = 0
+    var flipDoneCnt = 0
+    // mark: override func
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -40,6 +44,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let dest = segue.destinationViewController as! DetailViewController
+        dest.detailLabel.text = "you selected \(collectionContent[selectedCell].title)"
+    }
+    // mark: collection view
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionContent.count
     }
@@ -52,7 +61,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             mycell.image.image = UIImage(named: d.imageName)
             mycell.titleLabel.text = d.title
             mycell.delegateEffect = self
-            mycell.config(5.0, tx: 50)
+            mycell.config(duration: 0.3)
             allCells[indexPath.item] = mycell
             return mycell
         }
@@ -63,21 +72,27 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let idx = indexPath.item
         let mycell = allCells[idx]
-        
-        mycell?.clicked()
+        selectedCell = idx
+        mycell?.animating(true)
     }
     
-    func flip() {
-        var done = 0
+    // mark: flip
+    func flipStart() {
         for (_, c) in allCells {
-            if !c.animFinished {
-                return
+            if !c.anim_start {
+                c.animating(false)
             }
-            done++
         }
+        
+    }
+    func flipEnd() {
+        flipDoneCnt++
+        
         // all finished 
-        assert(done == allCells.count)
-        print("all effect finished, turn to another page")
+        if(flipDoneCnt == allCells.count){
+            print("all effect finished, turn to another page")
+            performSegueWithIdentifier("show", sender: self)
+        }
     }
 }
 

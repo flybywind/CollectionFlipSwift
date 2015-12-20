@@ -85,11 +85,49 @@
                     <navigationItem key="navigationItem" id="grL-MO-oxt"/>
                     <connections>
                         <outlet property="imageCollection" destination="Orh-RV-bCS" id="2MT-sQ-ISn"/>
+                        <segue destination="bt6-0X-PQa" kind="show" identifier="show" id="4PU-bt-vtG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749" y="355"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="uLm-bU-3l6">
+            <objects>
+                <viewController id="bt6-0X-PQa" customClass="DetailViewController" customModule="CollectionFlipTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nxr-bo-QaR"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Az-AZ-OHQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dqg-H8-bbC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLP-Zz-OIu">
+                                <rect key="frame" x="200" y="250" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="4tV-vM-2U1"/>
+                                    <constraint firstAttribute="height" constant="100" id="lcO-Rm-8i8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YLP-Zz-OIu" firstAttribute="centerY" secondItem="dqg-H8-bbC" secondAttribute="centerY" id="CFU-fX-pik"/>
+                            <constraint firstItem="YLP-Zz-OIu" firstAttribute="centerX" secondItem="dqg-H8-bbC" secondAttribute="centerX" id="RkW-qi-e7d"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailLabel" destination="YLP-Zz-OIu" id="nHU-Hc-XUn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WwL-af-Asa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pq6-GV-WXJ">
