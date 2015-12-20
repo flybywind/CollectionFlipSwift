@@ -92,6 +92,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if(flipDoneCnt == allCells.count){
             print("all effect finished, turn to another page")
             performSegueWithIdentifier("show", sender: self)
+            flipDoneCnt = 0
         }
     }
     
